@@ -36,7 +36,7 @@ try {
 //     log(`${chalk.red(err)}`);
 // }
 
-searcher(defaultSettings);
+searcher();
 
 
 
