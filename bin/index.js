@@ -30,12 +30,12 @@ try {
 }
 
 // 异常捕获
-// try {
-//     searcher(defaultSettings);
-// } catch(err) {
-//     log(`${chalk.red(err)}`);
-// }
-searcher();
+try {
+    searcher();
+} catch(err) {
+    log(`${chalk.red(err)}`);
+}
+// searcher();
 
 
 
