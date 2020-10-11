@@ -30,10 +30,20 @@ inquirer
         ],
         name: 'outputType',
         message: '请选择将解析结果进行输出的方式',
+    },
+    {
+      type: 'confirm',
+      name: 'autoDelete',
+      message: '是否自动删除筛选结果（请慎重考虑）',
+      default: false
     }
   ])
   .then(answers => {
-    defaultSettings.getInstance().inquirerOptions = {...defaultSettings.inquirerOptions, ...{outputType: answers.outputType === '输出结果到文件'}};
+    defaultSettings.getInstance().inquirerOptions = {
+      ...defaultSettings.inquirerOptions, 
+      ...{outputType: answers.outputType === '输出结果到文件'},
+      ...{autoDelete: answers.autoDelete},
+    };
     const configPath = `${rootPath}/match-file.config.js`;
     try {
         // 配置文件存在 读取配置文件内容并且执行
