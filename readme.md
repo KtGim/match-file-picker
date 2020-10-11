@@ -26,11 +26,17 @@ match-file-picker, 会读取当前文件夹下的 match-file.config.js 文件，
 // lib/core/defaultSettings
 module.exports = {
     // 匹配的文件后缀名称
-    matchFileExt: [
+    matchEsExt: [
         '.js',
         '.jsx',
         '.ts',
         '.tsx'
+    ],
+    matchStyleExt: [
+        '.less',
+        '.css',
+        '.scss',
+        '.sass'
     ],
     // 排除的目录名称
     excludesProName: [
@@ -67,7 +73,8 @@ module.exports = {
 }
 ```
 
-- matchFileExt: 会读取的文件类型
+- matchEsExt: 会读取的 es 文件类型
+- matchStyleExt: 项目中包含的 样式文件类型，会做简单的 导入分析
 - excludesProName: 自动忽略的来源目录，当发现引用来自于这个配置项所包含的目录时，会跳过对这个节点数据的处理
 - aliasMappings: 别名关系印射，项目中 配置的别名印射，最终会解析成绝对路径。
 - babelSetting: babel 配置型，实际上就是 .babelrc 配置。不过此处默认会对 typescript 和 javascript 进行解析
