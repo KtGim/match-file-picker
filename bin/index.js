@@ -45,13 +45,12 @@ inquirer
       ...{autoDelete: answers.autoDelete},
     };
     const configPath = `${rootPath}/match-file.config.js`;
-    try {
-        // 配置文件存在 读取配置文件内容并且执行
-        fs.accessSync(configPath);
-        // 获取文件内容， 并且传入主程序
-        combineObj(defaultSettings.getInstance(), require(configPath));
-    } catch(err) {
-        log(chalk.red(`配置文件 ${chalk.green('match-file.config.js')} 不存在, 按默认配置解析`));
+    // 配置文件存在 读取配置文件内容并且执行
+    if (fs.existsSync(configPath)) {
+      // 获取文件内容， 并且传入主程序
+      combineObj(defaultSettings.getInstance(), require(configPath));
+    } else {
+      log(chalk.red(`配置文件 ${chalk.green('match-file.config.js')} 不存在, 按默认配置解析`));
     }
     searcher();
   })
