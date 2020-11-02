@@ -59,14 +59,13 @@ inquirer
     if (fs.existsSync(configPath)) {
       // 获取文件内容， 并且传入主程序
       combineObj(settings, require(configPath));
-      console.log(settings.moduleNames, configPath, '-----')
     } else {
       log(chalk.red(`配置文件 ${chalk.green('match-file.config.js')} 不存在, 按默认配置解析`));
     }
     searcher();
   })
   .catch(err => {
-    console.log(err);
+    log(err);
     log(`${chalk.red(err)}`);
     process.exit(0);
   });
