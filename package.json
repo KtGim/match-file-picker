@@ -8,7 +8,8 @@
   },
   "bin": {
     "mf": "./bin/index.js",
-    "dm": "./bin/deleteEmptyModules.js"
+    "dm": "./bin/deleteEmptyModules.js",
+    "wf": "./bin/watch-file.js"
   },
   "author": "ktGim",
   "license": "ISC",
